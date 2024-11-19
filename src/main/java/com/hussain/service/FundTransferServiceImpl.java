@@ -41,7 +41,10 @@ public class FundTransferServiceImpl implements FundTransferService{
 		if (fromAccount.getBalance().compareTo(fundTransferRequestDTO.getAmount()) < 0) {
             throw new InsufficentAccountBalance("Insufficient balance in the from account.");
         }
-		fromAccount.setBalance(fromAccount.getBalance().subtract(fundTransferRequestDTO.getAmount()));
+//		fromAccount.setBalance(fromAccount.getBalance().subtract(fundTransferRequestDTO.getAmount()));
+		
+		fromAccount.setBalance(fromAccount.getBalance()-fundTransferRequestDTO.getAmount());
+		
 //      toAccount.setBalance(toAccount.getBalance().add(amount));
 		accountRepository.save(fromAccount);
         TransactionHistory transactionHistory = new TransactionHistory();
