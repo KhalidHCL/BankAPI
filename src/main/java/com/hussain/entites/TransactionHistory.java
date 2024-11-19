@@ -1,6 +1,5 @@
 package com.hussain.entites;
 
-import java.math.BigDecimal;
 import java.time.LocalDateTime;
 
 import jakarta.persistence.Entity;
@@ -25,7 +24,7 @@ public class TransactionHistory {
 	
     private String fromAccount;
     private String toAccount;
-    private BigDecimal transferAmount;
+    private Double transferAmount;
     private LocalDateTime transactionTime;
     private String comments;
     private Double totalBalance;

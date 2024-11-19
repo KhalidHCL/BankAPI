@@ -12,5 +12,13 @@ public class FundTransferGlobalException {
 	public ResponseEntity<String> accoundNumberNotExist(AccountNumberNotExist ex) {
 		return new ResponseEntity<>(ex.getMessage(),HttpStatus.NOT_FOUND);
 	}
-
+	
+	@ExceptionHandler(InsufficentAccountBalance.class)
+	public ResponseEntity<String> insufficentAccountBalance(InsufficentAccountBalance ex) {
+		return new ResponseEntity<>(ex.getMessage(),HttpStatus.FORBIDDEN);
+	}
+   
+	public ResponseEntity<String> transactionFailExceptionEntity(TransactionFailExceptio ex) {
+		return new ResponseEntity<>(ex.getMessage(),HttpStatus.EXPECTATION_FAILED);
+	}
 }

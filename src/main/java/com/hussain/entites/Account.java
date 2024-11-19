@@ -1,7 +1,5 @@
 package com.hussain.entites;
 
-import java.math.BigDecimal;
-
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
@@ -23,7 +21,7 @@ public class Account {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long accountId;
     private String accountNumber;
-    private BigDecimal balance;
+    private Double balance;
     
     @ManyToOne
     @JoinColumn(name = "customer_id", nullable = false)

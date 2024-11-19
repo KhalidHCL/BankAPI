@@ -27,9 +27,9 @@ public class FundTransferController {
 	private FundTransferService service;
 	
 	@PostMapping("/transfer")
-    public ResponseEntity<String> transferFunds(@Valid @RequestBody FundTransferRequestDTO fundtransferDto) throws AccountNumberNotExist, InsufficentAccountBalance {
+    public String transferFunds(@Valid @RequestBody FundTransferRequestDTO fundtransferDto) throws AccountNumberNotExist, InsufficentAccountBalance {
 		String fundTransfer = service.fundTransfer(fundtransferDto);
-        return new ResponseEntity<>(fundTransfer,HttpStatus.OK);
+        return fundTransfer;
     }
     
 	@PostMapping("/history")
